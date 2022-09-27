@@ -125,12 +125,11 @@ button{
     background-color: #000;
     border: 0;
     color: #fff;
+    right: 10px;
 }
 #fullPage{
-    bottom: 20px;
-    right: 10px;
+    bottom:80px;
 }
 #printPage{
-    bottom:80px;
-    right: 10px;
+    bottom: 20px;
 }

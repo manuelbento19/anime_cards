@@ -7,38 +7,38 @@
     <link rel="stylesheet" href="./assets/styles/styles.css">
     <title>Joker</title>
 </head>
-<body>
+<body onload="Notification.requestPermission()">
     <div class="container">
         <div class="content">
-            <div class="box">
+            <div class="box" onclick="whoIs('.box:nth-child(1)')">
                <div class="content_box">
                     <span>Zoro</span>
                     <span>Zoro</span>
                     <img src="./assets/images/latest-1239851984" alt=""/>
                </div>
             </div>
-            <div class="box">
+            <div class="box" onclick="whoIs('.box:nth-child(2)')">
                 <div class="content_box">
                     <span>Naruto</span>
                     <span>Naruto</span>
                     <img src="./assets/images/2884_render_rendernarutosennin-2856105077" alt=""/>
                 </div>
             </div>
-            <div class="box">
+            <div class="box" onclick="whoIs('.box:nth-child(3)')">
                <div class="content_box">
                     <span>Joker</span>
                     <span>Joker</span>
                     <img src="./assets/images/joker.png" alt=""/>
                </div>
             </div>
-            <div class="box">
+            <div class="box" onclick="whoIs('.box:nth-child(4)')">
                 <div class="content_box">
                     <span>Itachi</span>
                     <span>Itachi</span>
                     <img src="./assets/images/uchiha-itachi-png-clip-art-thumbnail-841564260" alt=""/>
                 </div>
             </div>
-            <div class="box">
+            <div class="box" onclick="whoIs('.box:nth-child(5)')">
                <div class="content_box">
                     <span>Sasuke</span>
                     <span>Sasuke</span>
@@ -46,15 +46,27 @@
                </div>
             </div>
         </div>
-        <button id="fullPage" onclick="fullPage()">Full</button>
+        <button id="fullPage" onclick="fullPage('.container')">Full</button>
         <button id="printPage" onclick="printPage()">Print</button>
+        <div id="message">
+            <h3></h3>
+            <p></p>
+        </div>
     </div>
     <script>
-        function fullPage(){
-            document.querySelector('body').requestFullscreen()
+        function fullPage(element){
+            document.querySelector(element).requestFullscreen();
         }
         function printPage(){
             print();
+        }
+        function whoIs(element){
+            var who = document.querySelector(`${element} span`).innerText;
+            var picture = document.querySelector(`${element} img`).src;
+            new Notification("Personagem",{
+                body:`Olá, eu sou o ${who}.`,
+                image: picture
+            })
         }
     </script>
 </body>
