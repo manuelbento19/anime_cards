@@ -25,15 +25,35 @@ body{
 }
 .box{
     flex: 1;
-    background-color: #209425;
-    border: 0;
-    border-radius: 4px;
+    background: linear-gradient(#03a9f4, #000);;
+    border: 1px outset rgba(238, 238, 238, 0.294);
+    border-radius: 5px;
     width: 300px;
     height: 400px;
     box-shadow: -16px 21px 4px 3px  rgba(0 0 0 /20%);
     position: relative;
     transition: all ease-out 1.5s;
+    padding: 10px;
 }
+.box .content_box{
+    height: 100%;
+    width: 100%;
+    border: 3px solid #fff;
+    border-radius: 5px;
+}
+.box::before{
+    content: '🚀';
+    font-size: 42px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
 .box img{
     flex: 1;
     width: 100%;
@@ -42,14 +62,20 @@ body{
 }
 .box:hover{
    translate: 0 -80px; 
-   background-color:#fff;
+   background: linear-gradient(#eee, #fff);
+   transition: all ease-in-out 2s;
+   z-index: 10 !important;
+}
+.box:hover .box::before{
+    display: none;
 }
 .box:hover img{
     opacity: 1;
     transition: all ease 4s;
 }
 .box:hover span{
-    display: inline;
+    opacity: 1;
+    transition: all ease-out 5s;
  }
 .box span{
     color: rgb(145, 145, 145);
@@ -57,7 +83,7 @@ body{
     font-weight: 500;
     writing-mode: vertical-lr;
     text-shadow: 1px 3px  3px  rgba(40, 40, 40, 0.678);
-    display: none;
+    opacity: 0;
 }
 .box span:nth-child(1){
     position: absolute;
@@ -90,4 +116,21 @@ body{
 .box:nth-child(5){
     z-index: 5;
     transform: rotate(18deg);
+}
+button{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    border: 0;
+    color: #fff;
+}
+#fullPage{
+    bottom: 20px;
+    right: 10px;
+}
+#printPage{
+    bottom:80px;
+    right: 10px;
 }
